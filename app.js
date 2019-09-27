@@ -42,7 +42,7 @@ app.use(function(req, res, next) {
 });
 
 // CORSを許可する
-app.use(cors())
+app.use(cors());
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
