@@ -20,8 +20,7 @@
     "mqtt": "^3.0.0",
     "node-bebop": "^0.6.0",
     "node-cron": "^2.0.3",
-    "request": "^2.88.0",
-    "cors": "^2.8.5"
+    "request": "^2.88.0"
   },
   "main": "app.js",
   "devDependencies": {},
