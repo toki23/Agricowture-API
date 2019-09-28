@@ -32,7 +32,7 @@ router.get("/:number", async function(req, res, next) {
         'summary': '牛'+`${jsonObj[req.params.number]}`+'発情ボタン押下',
         'colorId': 11 
       };
-      cal.Events.insert(calId.event)
+      calendar.Events.insert(calId.event)
       .then(resp => {
         console.log(resp);
       }).catch(err => {
