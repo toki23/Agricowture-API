@@ -9,7 +9,7 @@ var Calendar = require('node-google-calendar');
 var config = require('./credential/calendar-config');
 var calId = config.calendarId.Agricowture;
 var calendar = new Calendar(config);
-var date = Date.prototype();
+var date = new Date();
 
 router.get("/changePath/:path",(req,res,next)=>{
   path = req.params.path;
