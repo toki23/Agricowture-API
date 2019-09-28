@@ -25,13 +25,13 @@ router.get("/:number", async function(req, res, next) {
       url: `http://${path}/flightdrone/${jsonObj[req.params.number-1].Lat}/${jsonObj[req.params.number-1].Lng}`,
       method: 'GET'
   };
-  cowid = jsonObj[req.params.number];
+  cowid = req.params.number;
   console.log(`http://${path}/flightdrone/${jsonObj[req.params.number-1].Lat}/${jsonObj[req.params.number-1].Lng}`);
   request(options, function (error, response, body) {
       var event = {
         'start' : {'dateTime': date.toISOString() },
         'end': {'dateTime': date.toISOString() },
-        'summary': '牛'+ cowid + '発情ボタン押下',
+        'summary': '牛'+ toString(cowid) + '発情ボタン押下',
         'colorId': 11 
       };
       calendar.Events.insert(calId, event)
