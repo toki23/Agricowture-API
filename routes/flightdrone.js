@@ -29,7 +29,7 @@ router.get("/:number", async function(req, res, next) {
       var event = {
         'start' : {'dateTime': date.toISOString() },
         'end': {'dateTime': date.toISOString() },
-        'summary': `牛${jsonObj[req.params.number]}発情ボタン押下`,
+        'summary': '牛'+ String(jsonObj[req.params.number]) + '発情ボタン押下',
         'colorId': 11 
       };
       calendar.Events.insert(calId, event)
