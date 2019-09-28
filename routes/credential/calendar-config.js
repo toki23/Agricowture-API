@@ -1,6 +1,6 @@
 const cred = require('./calendar-credential.json');
 const KEY = cred.private_key;
-const SERVICE_ACCT_ID = cred.client_id;
+const SERVICE_ACCT_ID = cred.client_email;
 const CALENDAR_URL = 'https://calendar.google.com/calendar/embed?src=2hgte3b66etcvg1g6bgcu2qans@group.calendar.google.com&ctz=Asia%2FTokyo'
 const CALENDAR_ID = {
 	'Agricowture' : '2hgte3b66etcvg1g6bgcu2qans@group.calendar.google.com'
