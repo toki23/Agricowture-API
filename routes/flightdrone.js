@@ -25,7 +25,7 @@ router.get("/:number", async function(req, res, next) {
       url: `http://${path}/flightdrone/${jsonObj[req.params.number-1].Lat}/${jsonObj[req.params.number-1].Lng}`,
       method: 'GET'
   };
-  cowid = `${jsonObj[req.params.number]}`
+  cowid = jsonObj[req.params.number];
   console.log(`http://${path}/flightdrone/${jsonObj[req.params.number-1].Lat}/${jsonObj[req.params.number-1].Lng}`);
   request(options, function (error, response, body) {
       var event = {
