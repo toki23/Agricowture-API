@@ -10,6 +10,7 @@ var config = require('./credential/calendar-config');
 var calId = config.calendarId.Agricowture;
 var calendar = new Calendar(config);
 var date = new Date();
+var cowid;
 
 router.get("/changePath/:path",(req,res,next)=>{
   path = req.params.path;
@@ -24,12 +25,13 @@ router.get("/:number", async function(req, res, next) {
       url: `http://${path}/flightdrone/${jsonObj[req.params.number-1].Lat}/${jsonObj[req.params.number-1].Lng}`,
       method: 'GET'
   };
+  cowid = `${jsonObj[req.params.number]}`
   console.log(`http://${path}/flightdrone/${jsonObj[req.params.number-1].Lat}/${jsonObj[req.params.number-1].Lng}`);
   request(options, function (error, response, body) {
       var event = {
         'start' : {'dateTime': date.toISOString() },
         'end': {'dateTime': date.toISOString() },
-        'summary': '牛'+ String(jsonObj[req.params.number]) + '発情ボタン押下',
+        'summary': '牛'+ cowid + '発情ボタン押下',
         'colorId': 11 
       };
       calendar.Events.insert(calId, event)
