@@ -9,6 +9,6 @@ const TIMEZONE = 'UTC+09:00'
 
 module.exports.calendarUrl = CALENDAR_URL;
 module.exports.serviceAcctId = SERVICE_ACCT_ID;
-module.exports.calendarID = CALENDAR_ID;
+module.exports.calendarId = CALENDAR_ID;
 module.exports.key = KEY;
 module.exports.timezone = TIMEZONE;
