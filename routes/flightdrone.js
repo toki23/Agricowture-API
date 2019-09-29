@@ -39,7 +39,6 @@ router.get("/:number", async function(req, res, next) {
   });
   console.log(`http://${path}/flightdrone/${jsonObj[req.params.number-1].Lat}/${jsonObj[req.params.number-1].Lng}`);
   request(options, function (error, response, body) {
-      
       res.send(body);
   });
 
