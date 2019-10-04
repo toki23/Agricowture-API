@@ -1,9 +1,9 @@
 var mqtt = require("mqtt");
 var fs = require("fs");
 var jsonfile = require("jsonfile");
-var credential = require("./credential/mqtt-credential.json");
+var credential = require('./credential/mqtt-credential.json');
 var decrypt = (text) => {
-  var decipher = crypto.createDecipher(algo,key1);
+  var decipher = crypto.createDecipher(credential.algo,credential.key1);
   var pw = decipher.update(text,'base64','utf8');
   pw += decipher.final('utf8');
   return pw;
