@@ -9,7 +9,6 @@ var Calendar = require('node-google-calendar');
 var config = require('./credential/calendar-config');
 var calId = config.calendarId.Agricowture;
 var calendar = new Calendar(config);
-var date = new Date();
 var cowid;
 
 router.get("/changePath/:path",(req,res,next)=>{
@@ -19,7 +18,7 @@ router.get("/changePath/:path",(req,res,next)=>{
 });
 
 router.get("/:number", async function(req, res, next) {
-
+  var date = Date();
   var jsonObj = await getjson("./views/ahooo.json");
   var options = {
       url: `http://${path}/flightdrone/${jsonObj[req.params.number-1].Lat}/${jsonObj[req.params.number-1].Lng}`,
