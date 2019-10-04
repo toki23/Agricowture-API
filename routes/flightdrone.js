@@ -25,23 +25,22 @@ router.get("/:number", async function(req, res, next) {
       url: `http://${path}/flightdrone/${jsonObj[req.params.number-1].Lat}/${jsonObj[req.params.number-1].Lng}`,
       method: 'GET'
   };
-  var event = {
-    'start' : {'dateTime': date.toISOString() },
-    'end': {'dateTime': date.toISOString() },
-    'summary': '牛'+ String(req.params.number) + '発情ボタン押下',
-    'colorId': 11 
-  };
-  calendar.Events.insert(calId, event)
-  .then(resp => {
-  console.log(resp);
-  }).catch(err => {
-    console.log(err.message);
-  });
   console.log(`http://${path}/flightdrone/${jsonObj[req.params.number-1].Lat}/${jsonObj[req.params.number-1].Lng}`);
-  request(options, function (error, response, body) {
-      res.send(body);
-  });
-
+    request(options, function (error, response, body) {
+      var event = {
+        'start' : {'dateTime': date.toISOString() },
+        'end': {'dateTime': date.toISOString() },
+        'summary': '牛'+ String(req.params.number) + '発情ボタン押下',
+        'colorId': 11 
+      };
+      calendar.Events.insert(calId, event)
+      .then(resp => {
+        console.log(resp);
+      }).catch(err => {
+        console.log(err.message);
+      });
+        res.send(body);
+      });
 });
 
 module.exports = router;
