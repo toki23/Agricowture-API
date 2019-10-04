@@ -1,9 +1,16 @@
 var mqtt = require("mqtt");
 var fs = require("fs");
 var jsonfile = require("jsonfile");
+var credential = require("./credential/mqtt-credential.json");
+var decrypt = (text) => {
+  var decipher = crypto.createDecipher(algo,key1);
+  var pw = decipher.update(text,'base64','utf8');
+  pw += decipher.final('utf8');
+  return pw;
+}
 
 var client = mqtt.connect("mqtt://mqtt.senseway.net", {
-  password: "skyprog23",
+  password: decrypt(key2),
   username: "toki23",
   port: 1883,
   topic: "lora/toki23/+/rx"
