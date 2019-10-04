@@ -10,7 +10,7 @@ var decrypt = (text) => {
 }
 
 var client = mqtt.connect("mqtt://mqtt.senseway.net", {
-  password: decrypt(key2),
+  password: decrypt(credential.key2),
   username: "toki23",
   port: 1883,
   topic: "lora/toki23/+/rx"
